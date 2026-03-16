@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Which FORGE Is Right for You? — Take the Quiz | Juice Nation JA</title>
+  <meta name="description" content="Answer 3 quick questions and we'll match you with the perfect FORGE meal replacement shake flavor. Find your ideal blend from Juice Nation JA.">
+  <meta property="og:title" content="Which FORGE Is Right for You? — Take the Quiz | Juice Nation JA">
+  <meta property="og:description" content="Answer 3 quick questions and discover your perfect FORGE meal replacement shake flavor.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://juicenationja.com/pages/quiz.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+
+  <!-- ===== Announcement Bar ===== -->
+  <div class="announcement-bar">
+    <div class="container">
+      <p>FORGE Meal Replacement Shakes — Now available across Jamaica</p>
+    </div>
+  </div>
+
+  <!-- ===== Sticky Header ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <a href="/" class="logo">Juice Nation JA</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/products.html">Products</a></li>
+          <li><a href="/pages/nutrition.html">Nutrition</a></li>
+          <li><a href="/pages/our-story.html">Our Story</a></li>
+          <li><a href="/pages/find-us.html">Find Us</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+          <li><a href="/pages/quiz.html" class="active">Quiz</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <nav>
+        <ul class="mobile-nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/products.html">Products</a></li>
+          <li><a href="/pages/nutrition.html">Nutrition</a></li>
+          <li><a href="/pages/our-story.html">Our Story</a></li>
+          <li><a href="/pages/find-us.html">Find Us</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+          <li><a href="/pages/quiz.html" class="active">Quiz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Page Hero ===== -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Which FORGE Is Right for You?</h1>
+        <p>Answer 3 quick questions and we'll match you with your perfect flavor.</p>
+      </div>
+    </section>
+
+    <!-- ===== Quiz ===== -->
+    <section class="section">
+      <div class="quiz-container">
+
+        <!-- Progress Bar -->
+        <div class="quiz-progress">
+          <div class="quiz-progress-track">
+            <div class="quiz-progress-bar" id="quizProgressBar" style="width: 33%"></div>
+          </div>
+        </div>
+        <p class="quiz-step-indicator">Step <span id="currentStep">1</span> of 3</p>
+
+        <!-- Step 1: Goal -->
+        <div class="quiz-step active" data-step="1">
+          <h2 class="quiz-question">What's your primary goal?</h2>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="energy">
+              <span class="option-icon">&#9889;</span>
+              <div>
+                <strong>Energy Boost</strong>
+                <span>I need fuel to power through my day</span>
+              </div>
+            </button>
+            <button class="quiz-option" data-value="protein">
+              <span class="option-icon">&#128170;</span>
+              <div>
+                <strong>Build &amp; Recover</strong>
+                <span>I want maximum protein for muscle growth</span>
+              </div>
+            </button>
+            <button class="quiz-option" data-value="convenience">
+              <span class="option-icon">&#127939;</span>
+              <div>
+                <strong>Quick &amp; Easy</strong>
+                <span>I need a fast, complete meal on the go</span>
+              </div>
+            </button>
+            <button class="quiz-option" data-value="weight">
+              <span class="option-icon">&#9878;&#65039;</span>
+              <div>
+                <strong>Stay Balanced</strong>
+                <span>I want nutritious meals without excess calories</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Flavor -->
+        <div class="quiz-step" data-step="2">
+          <h2 class="quiz-question">What flavors do you enjoy most?</h2>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="berry">
+              <span class="option-icon">&#129744;</span>
+              <div>
+                <strong>Berry &amp; Fruity</strong>
+                <span>I love fresh, fruity flavors</span>
+              </div>
+            </button>
+            <button class="quiz-option" data-value="nutty">
+              <span class="option-icon">&#129372;</span>
+              <div>
+                <strong>Nutty &amp; Creamy</strong>
+                <span>Give me rich, creamy, peanut butter vibes</span>
+              </div>
+            </button>
+            <button class="quiz-option" data-value="coffee">
+              <span class="option-icon">&#9749;</span>
+              <div>
+                <strong>Coffee &amp; Rich</strong>
+                <span>I'm a coffee lover who likes bold taste</span>
+              </div>
+            </button>
+            <button class="quiz-option" data-value="sweet">
+              <span class="option-icon">&#127820;</span>
+              <div>
+                <strong>Sweet &amp; Tropical</strong>
+                <span>I like sweet, tropical fruit combinations</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Timing -->
+        <div class="quiz-step" data-step="3">
+          <h2 class="quiz-question">When do you usually need a meal replacement?</h2>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="breakfast">
+              <span class="option-icon">&#127749;</span>
+              <div>
+                <strong>Breakfast</strong>
+                <span>I need something quick before I start my day</span>
+              </div>
+            </button>
+            <button class="quiz-option" data-value="lunch">
+              <span class="option-icon">&#127970;</span>
+              <div>
+                <strong>Lunch On-the-Go</strong>
+                <span>I'm always rushing through lunch</span>
+              </div>
+            </button>
+            <button class="quiz-option" data-value="workout">
+              <span class="option-icon">&#127947;&#65039;</span>
+              <div>
+                <strong>Post-Workout</strong>
+                <span>I need recovery fuel after training</span>
+              </div>
+            </button>
+            <button class="quiz-option" data-value="evening">
+              <span class="option-icon">&#127769;</span>
+              <div>
+                <strong>Evening Snack</strong>
+                <span>Late nights call for proper nutrition</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="quiz-nav">
+          <button class="btn-back quiz-prev" style="display:none">&larr; Back</button>
+          <button class="btn-next quiz-next">Next &rarr;</button>
+        </div>
+
+      </div><!-- /.quiz-container -->
+
+      <!-- ===== Quiz Result ===== -->
+      <div class="quiz-container">
+        <div class="quiz-result" id="quizResult">
+          <div class="quiz-result-card" id="quizResultCard">
+            <h2>Your Perfect Match</h2>
+            <img id="resultImage" class="result-image" src="" alt="" loading="lazy">
+            <p class="result-flavor" id="resultName"></p>
+            <p id="resultWhy"></p>
+            <div class="result-stats" id="resultStats"></div>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:1.5rem;">
+              <a id="resultDetailLink" href="#" class="btn btn-primary">View Product Details</a>
+              <a href="https://wa.me/18765571212?text=Hi!%20I%20want%20to%20order%20FORGE" class="btn btn-outline" style="border-color:var(--color-primary); color:var(--color-primary);">Order via WhatsApp</a>
+            </div>
+          </div>
+          <div style="text-align:center; margin-top:2rem;">
+            <button class="btn-back" id="retakeQuiz">Retake Quiz</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Juice Nation JA</h3>
+          <p>Real ingredients. Real nutrition. Made in Jamaica.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/products.html">Products</a></li>
+            <li><a href="/pages/nutrition.html">Nutrition</a></li>
+            <li><a href="/pages/our-story.html">Our Story</a></li>
+            <li><a href="/pages/find-us.html">Find Us</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li><a href="/pages/quiz.html">Take the Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><a href="https://wa.me/18765571212" target="_blank" rel="noopener">WhatsApp: +1 (876) 557-1212</a></li>
+            <li><a href="https://instagram.com/juicenationja" target="_blank" rel="noopener">@juicenationja</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Juice Nation JA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      // Product data for quiz results
+      var products = {
+        'blueberry-strawberry': {
+          name: 'Blueberry Strawberry',
+          image: '/images/forge-blueberry-strawberry-1.jpg',
+          why: 'Light, refreshing, and berry-forward with 15g protein at just 320 calories \u2014 perfect for balanced nutrition.',
+          protein: '15g',
+          calories: '320',
+          link: '/pages/products.html#blueberry-strawberry'
+        },
+        'coffee-banana': {
+          name: 'Coffee Banana',
+          image: '/images/forge-coffee-banana-1.jpg',
+          why: 'Bold coffee flavor meets smooth banana \u2014 your breakfast and coffee in one bottle. 15g protein, only 290 calories.',
+          protein: '15g',
+          calories: '290',
+          link: '/pages/products.html#coffee-banana'
+        },
+        'peanut-banana': {
+          name: 'Peanut Banana',
+          image: '/images/forge-peanut-banana.jpg',
+          why: 'Creamy peanut butter and banana \u2014 the classic combo with 19g of protein for serious recovery.',
+          protein: '19g',
+          calories: '350',
+          link: '/pages/products.html#peanut-banana'
+        },
+        'peanut-banana-strawberry': {
+          name: 'Peanut Banana Strawberry',
+          image: '/images/forge-peanut-banana-strawberry-1.jpg',
+          why: 'Our most loaded blend \u2014 20g protein with peanut, banana, and strawberry for maximum fuel.',
+          protein: '20g',
+          calories: '370',
+          link: '/pages/products.html#peanut-banana-strawberry'
+        }
+      };
+
+      // Recommendation logic: flavor preference is the strongest signal
+      function getRecommendation(answers) {
+        var goal = answers[0];
+        var flavor = answers[1];
+        var timing = answers[2];
+
+        if (flavor === 'coffee') return 'coffee-banana';
+        if (flavor === 'berry') return 'blueberry-strawberry';
+        if (flavor === 'nutty') {
+          if (goal === 'protein' || timing === 'workout') return 'peanut-banana-strawberry';
+          return 'peanut-banana';
+        }
+        if (flavor === 'sweet') {
+          if (goal === 'protein' || timing === 'workout') return 'peanut-banana-strawberry';
+          return 'blueberry-strawberry';
+        }
+
+        if (goal === 'protein') return 'peanut-banana-strawberry';
+        if (goal === 'energy') return 'coffee-banana';
+        if (goal === 'weight') return 'blueberry-strawberry';
+        return 'peanut-banana';
+      }
+
+      // State
+      var currentStep = 1;
+      var answers = [];
+      var steps = document.querySelectorAll('.quiz-step');
+      var progressBar = document.getElementById('quizProgressBar');
+      var stepIndicator = document.getElementById('currentStep');
+      var prevBtn = document.querySelector('.quiz-prev');
+      var nextBtn = document.querySelector('.quiz-next');
+      var quizResult = document.getElementById('quizResult');
+      var quizNav = document.querySelector('.quiz-nav');
+
+      // Hide result initially
+      quizResult.style.display = 'none';
+
+      function showStep(n) {
+        steps.forEach(function (step) {
+          step.classList.remove('active');
+        });
+        var target = document.querySelector('[data-step="' + n + '"]');
+        if (target) target.classList.add('active');
+        stepIndicator.textContent = n;
+        progressBar.style.width = (n * 33.33) + '%';
+        prevBtn.style.display = n > 1 ? '' : 'none';
+        nextBtn.textContent = n === 3 ? 'See My Match \u2192' : 'Next \u2192';
+      }
+
+      // Option selection via event delegation
+      document.addEventListener('click', function (e) {
+        var option = e.target.closest('.quiz-option');
+        if (!option) return;
+        var step = option.closest('.quiz-step');
+        if (!step) return;
+        step.querySelectorAll('.quiz-option').forEach(function (o) { o.classList.remove('selected'); });
+        option.classList.add('selected');
+      });
+
+      // Next
+      nextBtn.addEventListener('click', function () {
+        var stepEl = document.querySelector('.quiz-step[data-step="' + currentStep + '"]');
+        var selected = stepEl.querySelector('.quiz-option.selected');
+        if (!selected) {
+          stepEl.classList.add('shake');
+          setTimeout(function () { stepEl.classList.remove('shake'); }, 500);
+          return;
+        }
+        answers[currentStep - 1] = selected.getAttribute('data-value');
+
+        if (currentStep < 3) {
+          currentStep++;
+          showStep(currentStep);
+        } else {
+          // Show result
+          var key = getRecommendation(answers);
+          var product = products[key];
+          document.getElementById('resultImage').src = product.image;
+          document.getElementById('resultImage').alt = 'FORGE ' + product.name;
+          document.getElementById('resultName').textContent = 'FORGE ' + product.name;
+          document.getElementById('resultWhy').textContent = product.why;
+          document.getElementById('resultStats').innerHTML =
+            '<div class="result-stat"><span class="stat-value">' + product.protein + '</span><span class="stat-label">Protein</span></div>' +
+            '<div class="result-stat"><span class="stat-value">' + product.calories + '</span><span class="stat-label">Calories</span></div>';
+          document.getElementById('resultDetailLink').href = product.link;
+
+          // Hide quiz steps/nav, show result
+          steps.forEach(function (s) { s.classList.remove('active'); });
+          quizNav.style.display = 'none';
+          document.querySelector('.quiz-progress').style.display = 'none';
+          document.querySelector('.quiz-step-indicator').style.display = 'none';
+          quizResult.style.display = '';
+          quizResult.classList.add('active');
+          quizResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+
+      // Back
+      prevBtn.addEventListener('click', function () {
+        if (currentStep > 1) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+
+      // Retake
+      document.getElementById('retakeQuiz').addEventListener('click', function () {
+        answers = [];
+        currentStep = 1;
+        document.querySelectorAll('.quiz-option').forEach(function (o) { o.classList.remove('selected'); });
+        quizResult.style.display = 'none';
+        quizResult.classList.remove('active');
+        quizNav.style.display = '';
+        document.querySelector('.quiz-progress').style.display = '';
+        document.querySelector('.quiz-step-indicator').style.display = '';
+        showStep(1);
+        document.querySelector('.quiz-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      // Initialize
+      showStep(1);
+    })();
+  </script>
+
+</body>
+</html>

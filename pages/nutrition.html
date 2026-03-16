@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Facts — FORGE Meal Replacement Shake | Juice Nation JA</title>
+  <meta name="description" content="Full nutrition facts for every FORGE Meal Replacement Shake flavor. Transparent labels, real ingredients, complete vitamin and mineral breakdown.">
+  <meta property="og:title" content="Nutrition Facts — FORGE Meal Replacement Shake | Juice Nation JA">
+  <meta property="og:description" content="Complete nutrition labels for all 4 FORGE flavors. Calories, protein, vitamins, minerals — everything you need to know.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://juicenationja.com/pages/nutrition.html">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <style>
+    /* ===== Nutrition Page Specific Styles ===== */
+
+    .page-hero {
+      padding: 8rem 0 4rem;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .page-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nutrition-section {
+      padding: 0 0 4rem;
+    }
+
+    /* Nutrition Tabs */
+    .nutrition-tabs {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .nutrition-tabs::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .nutrition-tabs::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+    }
+
+    .nutrition-tab {
+      flex-shrink: 0;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      background: transparent;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nutrition-tab:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .nutrition-tab.active {
+      background: #fff;
+      color: #111;
+      border-color: #fff;
+    }
+
+    /* Nutrition Panels */
+    .nutrition-panel {
+      display: none;
+    }
+
+    .nutrition-panel.active {
+      display: block;
+    }
+
+    .nutrition-panel-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .nutrition-panel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Nutrition Facts Label ===== */
+    .nf-label {
+      border: 2px solid #fff;
+      padding: 0.5rem;
+      background: #fff;
+      color: #000;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      max-width: 380px;
+      width: 100%;
+    }
+
+    .nf-title {
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      margin: 0 0 0.25rem;
+    }
+
+    .nf-line-thick {
+      border: none;
+      height: 8px;
+      background: #000;
+      margin: 0.25rem 0;
+    }
+
+    .nf-line-medium {
+      border: none;
+      height: 4px;
+      background: #000;
+      margin: 0.25rem 0;
+    }
+
+    .nf-line-thin {
+      border: none;
+      height: 1px;
+      background: #000;
+      margin: 0.15rem 0;
+    }
+
+    .nf-serving {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .nf-serving strong {
+      font-size: 0.95rem;
+    }
+
+    .nf-calories-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 0.25rem 0;
+    }
+
+    .nf-calories-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .nf-calories-value {
+      font-size: 2.75rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .nf-dv-header {
+      text-align: right;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin: 0.2rem 0;
+    }
+
+    .nf-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      padding: 0.15rem 0;
+    }
+
+    .nf-row--bold .nf-nutrient {
+      font-weight: 700;
+    }
+
+    .nf-row--indent1 {
+      padding-left: 1.5rem;
+    }
+
+    .nf-row--indent2 {
+      padding-left: 3rem;
+    }
+
+    .nf-nutrient {
+      flex: 1;
+    }
+
+    .nf-amount {
+      margin-right: 1rem;
+      white-space: nowrap;
+    }
+
+    .nf-dv {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nf-footnote {
+      font-size: 0.75rem;
+      line-height: 1.4;
+      margin-top: 0.25rem;
+    }
+
+    .nf-footnote-dv {
+      text-align: left;
+    }
+
+    /* Right Column Info */
+    .nutrition-info-col h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .nutrition-info-col h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .ingredients-block {
+      margin-bottom: 2rem;
+    }
+
+    .ingredients-block p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .allergen-warning {
+      background: rgba(234, 88, 12, 0.12);
+      border: 1px solid rgba(234, 88, 12, 0.3);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .allergen-warning .allergen-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+
+    .allergen-warning p {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+    }
+
+    .allergen-warning strong {
+      color: #fb923c;
+    }
+
+    /* Vitamin/Mineral Badges */
+    .vitamin-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .vitamin-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .vitamin-badge .vb-value {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .vitamin-badge .vb-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* ===== Comparison Section ===== */
+    .comparison-section {
+      padding: 4rem 0 6rem;
+    }
+
+    .comparison-section h2 {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .comparison-subtitle {
+      text-align: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .comparison-table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .comparison-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    .comparison-table thead th {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      border-bottom: 2px solid rgba(255,255,255,0.15);
+      white-space: nowrap;
+    }
+
+    .comparison-table thead th:first-child {
+      text-align: left;
+    }
+
+    .comparison-table tbody td {
+      padding: 0.75rem 1.25rem;
+      text-align: center;
+      color: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .comparison-table tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .comparison-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table .best-value {
+      color: #4ade80;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Announcement Bar ===== -->
+  <div class="announcement-bar">
+    <div class="container">
+      <p>FORGE Meal Replacement Shakes — Now available across Jamaica</p>
+    </div>
+  </div>
+
+  <!-- ===== Sticky Header ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="/" class="logo">Juice Nation JA</a>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/products.html">Products</a></li>
+          <li><a href="/pages/nutrition.html" class="active">Nutrition</a></li>
+          <li><a href="/pages/our-story.html">Our Story</a></li>
+          <li><a href="/pages/find-us.html">Find Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Page Hero ===== -->
+    <section class="page-hero" data-animate="fade-up">
+      <div class="container">
+        <h1>Nutrition Facts</h1>
+        <p>Full transparency — every calorie, every vitamin, every ingredient. Know exactly what fuels you.</p>
+      </div>
+    </section>
+
+    <!-- ===== Nutrition Panels Section ===== -->
+    <section class="nutrition-section">
+      <div class="container">
+
+        <!-- Flavor Tabs -->
+        <div class="nutrition-tabs" data-animate="fade-up">
+          <button class="nutrition-tab active" data-flavor="nf-blueberry-strawberry">Blueberry Strawberry</button>
+          <button class="nutrition-tab" data-flavor="nf-coffee-banana">Coffee Banana</button>
+          <button class="nutrition-tab" data-flavor="nf-peanut-banana">Peanut Banana</button>
+          <button class="nutrition-tab" data-flavor="nf-peanut-banana-strawberry">Peanut Banana Strawberry</button>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- BLUEBERRY STRAWBERRY -->
+        <!-- ========================================== -->
+        <div class="nutrition-panel active" id="nf-blueberry-strawberry" data-animate="fade-up">
+          <div class="nutrition-panel-grid">
+
+            <!-- Nutrition Label -->
+            <div class="nf-label">
+              <p class="nf-title">Nutrition Facts</p>
+              <p class="nf-serving">2 servings per container</p>
+              <p class="nf-serving"><strong>Serving size</strong> 1/2 Bottle (500ml)</p>
+              <hr class="nf-line-thick">
+              <p class="nf-calories-label">Amount per serving</p>
+              <div class="nf-calories-row">
+                <span class="nf-calories-label" style="font-size:1.1rem;">Calories</span>
+                <span class="nf-calories-value">320</span>
+              </div>
+              <hr class="nf-line-medium">
+              <p class="nf-dv-header">% Daily Value*</p>
+              <hr class="nf-line-thin">
+
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Total Fat</span><span class="nf-amount">10g</span><span class="nf-dv">13%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Saturated Fat</span><span class="nf-amount">2g</span><span class="nf-dv">10%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient"><em>Trans</em> Fat</span><span class="nf-amount">0g</span><span class="nf-dv"></span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Cholesterol</span><span class="nf-amount">0mg</span><span class="nf-dv">0%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Sodium</span><span class="nf-amount">80mg</span><span class="nf-dv">3%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Total Carbohydrate</span><span class="nf-amount">42g</span><span class="nf-dv">15%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Dietary Fiber</span><span class="nf-amount">7g</span><span class="nf-dv">25%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Total Sugars</span><span class="nf-amount">24g</span><span class="nf-dv"></span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent2"><span class="nf-nutrient">Includes Added Sugars</span><span class="nf-amount">10g</span><span class="nf-dv">20%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Protein</span><span class="nf-amount">15g</span><span class="nf-dv">30%</span></div>
+              <hr class="nf-line-thick">
+
+              <div class="nf-row"><span class="nf-nutrient">Vitamin D</span><span class="nf-amount">2.8mcg</span><span class="nf-dv">14%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Calcium</span><span class="nf-amount">182mg</span><span class="nf-dv">14%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Iron</span><span class="nf-amount">2.88mg</span><span class="nf-dv">16%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Potassium</span><span class="nf-amount">470mg</span><span class="nf-dv">10%</span></div>
+              <hr class="nf-line-medium">
+
+              <p class="nf-footnote nf-footnote-dv">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
+            </div>
+
+            <!-- Right Column -->
+            <div class="nutrition-info-col">
+              <h2>Blueberry Strawberry</h2>
+
+              <div class="ingredients-block">
+                <h3>Ingredients</h3>
+                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, strawberries, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
+              </div>
+
+              <div class="allergen-warning">
+                <span class="allergen-icon" aria-hidden="true">&#9888;</span>
+                <p><strong>Allergen Warning:</strong> Contains Peanuts. Manufactured in a facility that processes soy, dairy, and tree nuts.</p>
+              </div>
+
+              <div>
+                <h3>Vitamin &amp; Mineral Highlights</h3>
+                <div class="vitamin-badges">
+                  <div class="vitamin-badge">
+                    <span class="vb-value">2.8mcg</span>
+                    <span class="vb-label">Vitamin D</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">182mg</span>
+                    <span class="vb-label">Calcium</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">2.88mg</span>
+                    <span class="vb-label">Iron</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">470mg</span>
+                    <span class="vb-label">Potassium</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">B12</span>
+                    <span class="vb-label">Vitamin</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- COFFEE BANANA -->
+        <!-- ========================================== -->
+        <div class="nutrition-panel" id="nf-coffee-banana" data-animate="fade-up">
+          <div class="nutrition-panel-grid">
+
+            <div class="nf-label">
+              <p class="nf-title">Nutrition Facts</p>
+              <p class="nf-serving">2 servings per container</p>
+              <p class="nf-serving"><strong>Serving size</strong> 1/2 Bottle (500ml)</p>
+              <hr class="nf-line-thick">
+              <p class="nf-calories-label">Amount per serving</p>
+              <div class="nf-calories-row">
+                <span class="nf-calories-label" style="font-size:1.1rem;">Calories</span>
+                <span class="nf-calories-value">290</span>
+              </div>
+              <hr class="nf-line-medium">
+              <p class="nf-dv-header">% Daily Value*</p>
+              <hr class="nf-line-thin">
+
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Total Fat</span><span class="nf-amount">7g</span><span class="nf-dv">9%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Saturated Fat</span><span class="nf-amount">1.5g</span><span class="nf-dv">8%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient"><em>Trans</em> Fat</span><span class="nf-amount">0g</span><span class="nf-dv"></span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Cholesterol</span><span class="nf-amount">0mg</span><span class="nf-dv">0%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Sodium</span><span class="nf-amount">80mg</span><span class="nf-dv">3%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Total Carbohydrate</span><span class="nf-amount">40g</span><span class="nf-dv">15%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Dietary Fiber</span><span class="nf-amount">3g</span><span class="nf-dv">11%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Total Sugars</span><span class="nf-amount">23g</span><span class="nf-dv"></span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent2"><span class="nf-nutrient">Includes Added Sugars</span><span class="nf-amount">12g</span><span class="nf-dv">24%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Protein</span><span class="nf-amount">15g</span><span class="nf-dv">30%</span></div>
+              <hr class="nf-line-thick">
+
+              <div class="nf-row"><span class="nf-nutrient">Vitamin D</span><span class="nf-amount">3.2mcg</span><span class="nf-dv">16%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Calcium</span><span class="nf-amount">208mg</span><span class="nf-dv">16%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Iron</span><span class="nf-amount">2.52mg</span><span class="nf-dv">14%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Potassium</span><span class="nf-amount">423mg</span><span class="nf-dv">9%</span></div>
+              <hr class="nf-line-medium">
+
+              <p class="nf-footnote nf-footnote-dv">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
+            </div>
+
+            <div class="nutrition-info-col">
+              <h2>Coffee Banana</h2>
+
+              <div class="ingredients-block">
+                <h3>Ingredients</h3>
+                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, strawberries, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
+              </div>
+
+              <div class="allergen-warning">
+                <span class="allergen-icon" aria-hidden="true">&#9888;</span>
+                <p><strong>Allergen Warning:</strong> Contains Peanuts. Manufactured in a facility that processes soy, dairy, and tree nuts.</p>
+              </div>
+
+              <div>
+                <h3>Vitamin &amp; Mineral Highlights</h3>
+                <div class="vitamin-badges">
+                  <div class="vitamin-badge">
+                    <span class="vb-value">3.2mcg</span>
+                    <span class="vb-label">Vitamin D</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">208mg</span>
+                    <span class="vb-label">Calcium</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">2.52mg</span>
+                    <span class="vb-label">Iron</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">423mg</span>
+                    <span class="vb-label">Potassium</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">B12</span>
+                    <span class="vb-label">Vitamin</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PEANUT BANANA -->
+        <!-- ========================================== -->
+        <div class="nutrition-panel" id="nf-peanut-banana" data-animate="fade-up">
+          <div class="nutrition-panel-grid">
+
+            <div class="nf-label">
+              <p class="nf-title">Nutrition Facts</p>
+              <p class="nf-serving">1 serving per container</p>
+              <p class="nf-serving"><strong>Serving size</strong> 1/2 Bottle (500ml)</p>
+              <hr class="nf-line-thick">
+              <p class="nf-calories-label">Amount per serving</p>
+              <div class="nf-calories-row">
+                <span class="nf-calories-label" style="font-size:1.1rem;">Calories</span>
+                <span class="nf-calories-value">370</span>
+              </div>
+              <hr class="nf-line-medium">
+              <p class="nf-dv-header">% Daily Value*</p>
+              <hr class="nf-line-thin">
+
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Total Fat</span><span class="nf-amount">16g</span><span class="nf-dv">21%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Saturated Fat</span><span class="nf-amount">2.5g</span><span class="nf-dv">13%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient"><em>Trans</em> Fat</span><span class="nf-amount">0g</span><span class="nf-dv"></span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Cholesterol</span><span class="nf-amount">0mg</span><span class="nf-dv">0%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Sodium</span><span class="nf-amount">80mg</span><span class="nf-dv">3%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Total Carbohydrate</span><span class="nf-amount">42g</span><span class="nf-dv">15%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Dietary Fiber</span><span class="nf-amount">6g</span><span class="nf-dv">21%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Total Sugars</span><span class="nf-amount">22g</span><span class="nf-dv"></span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent2"><span class="nf-nutrient">Includes Added Sugars</span><span class="nf-amount">10g</span><span class="nf-dv">20%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Protein</span><span class="nf-amount">19g</span><span class="nf-dv">38%</span></div>
+              <hr class="nf-line-thick">
+
+              <div class="nf-row"><span class="nf-nutrient">Vitamin D</span><span class="nf-amount">2.8mcg</span><span class="nf-dv">14%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Calcium</span><span class="nf-amount">182mg</span><span class="nf-dv">14%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Iron</span><span class="nf-amount">3.06mg</span><span class="nf-dv">17%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Potassium</span><span class="nf-amount">517mg</span><span class="nf-dv">11%</span></div>
+              <hr class="nf-line-medium">
+
+              <p class="nf-footnote nf-footnote-dv">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
+            </div>
+
+            <div class="nutrition-info-col">
+              <h2>Peanut Banana</h2>
+
+              <div class="ingredients-block">
+                <h3>Ingredients</h3>
+                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, strawberries, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
+              </div>
+
+              <div class="allergen-warning">
+                <span class="allergen-icon" aria-hidden="true">&#9888;</span>
+                <p><strong>Allergen Warning:</strong> Contains Peanuts. Manufactured in a facility that processes soy, dairy, and tree nuts.</p>
+              </div>
+
+              <div>
+                <h3>Vitamin &amp; Mineral Highlights</h3>
+                <div class="vitamin-badges">
+                  <div class="vitamin-badge">
+                    <span class="vb-value">2.8mcg</span>
+                    <span class="vb-label">Vitamin D</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">182mg</span>
+                    <span class="vb-label">Calcium</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">3.06mg</span>
+                    <span class="vb-label">Iron</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">517mg</span>
+                    <span class="vb-label">Potassium</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">B12</span>
+                    <span class="vb-label">Vitamin</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PEANUT BANANA STRAWBERRY -->
+        <!-- ========================================== -->
+        <div class="nutrition-panel" id="nf-peanut-banana-strawberry" data-animate="fade-up">
+          <div class="nutrition-panel-grid">
+
+            <div class="nf-label">
+              <p class="nf-title">Nutrition Facts</p>
+              <p class="nf-serving">2 servings per container</p>
+              <p class="nf-serving"><strong>Serving size</strong> 1/2 Bottle (500ml)</p>
+              <hr class="nf-line-thick">
+              <p class="nf-calories-label">Amount per serving</p>
+              <div class="nf-calories-row">
+                <span class="nf-calories-label" style="font-size:1.1rem;">Calories</span>
+                <span class="nf-calories-value">380</span>
+              </div>
+              <hr class="nf-line-medium">
+              <p class="nf-dv-header">% Daily Value*</p>
+              <hr class="nf-line-thin">
+
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Total Fat</span><span class="nf-amount">16g</span><span class="nf-dv">21%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Saturated Fat</span><span class="nf-amount">3g</span><span class="nf-dv">15%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient"><em>Trans</em> Fat</span><span class="nf-amount">0g</span><span class="nf-dv"></span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Cholesterol</span><span class="nf-amount">0mg</span><span class="nf-dv">0%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Sodium</span><span class="nf-amount">80mg</span><span class="nf-dv">3%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Total Carbohydrate</span><span class="nf-amount">43g</span><span class="nf-dv">16%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Dietary Fiber</span><span class="nf-amount">8g</span><span class="nf-dv">29%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent1"><span class="nf-nutrient">Total Sugars</span><span class="nf-amount">24g</span><span class="nf-dv"></span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--indent2"><span class="nf-nutrient">Includes Added Sugars</span><span class="nf-amount">10g</span><span class="nf-dv">20%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row nf-row--bold"><span class="nf-nutrient">Protein</span><span class="nf-amount">20g</span><span class="nf-dv">40%</span></div>
+              <hr class="nf-line-thick">
+
+              <div class="nf-row"><span class="nf-nutrient">Vitamin D</span><span class="nf-amount">2.8mcg</span><span class="nf-dv">14%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Calcium</span><span class="nf-amount">182mg</span><span class="nf-dv">14%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Iron</span><span class="nf-amount">3.06mg</span><span class="nf-dv">17%</span></div>
+              <hr class="nf-line-thin">
+              <div class="nf-row"><span class="nf-nutrient">Potassium</span><span class="nf-amount">517mg</span><span class="nf-dv">11%</span></div>
+              <hr class="nf-line-medium">
+
+              <p class="nf-footnote nf-footnote-dv">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
+            </div>
+
+            <div class="nutrition-info-col">
+              <h2>Peanut Banana Strawberry</h2>
+
+              <div class="ingredients-block">
+                <h3>Ingredients</h3>
+                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, strawberries, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
+              </div>
+
+              <div class="allergen-warning">
+                <span class="allergen-icon" aria-hidden="true">&#9888;</span>
+                <p><strong>Allergen Warning:</strong> Contains Peanuts. Manufactured in a facility that processes soy, dairy, and tree nuts.</p>
+              </div>
+
+              <div>
+                <h3>Vitamin &amp; Mineral Highlights</h3>
+                <div class="vitamin-badges">
+                  <div class="vitamin-badge">
+                    <span class="vb-value">2.8mcg</span>
+                    <span class="vb-label">Vitamin D</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">182mg</span>
+                    <span class="vb-label">Calcium</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">3.06mg</span>
+                    <span class="vb-label">Iron</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">517mg</span>
+                    <span class="vb-label">Potassium</span>
+                  </div>
+                  <div class="vitamin-badge">
+                    <span class="vb-value">B12</span>
+                    <span class="vb-label">Vitamin</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== Flavor Comparison Table ===== -->
+    <section class="comparison-section" data-animate="fade-up">
+      <div class="container">
+        <h2>Flavor Comparison</h2>
+        <p class="comparison-subtitle">All values per serving. Best-in-category values highlighted.</p>
+
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Nutrient</th>
+                <th>Blueberry Strawberry</th>
+                <th>Coffee Banana</th>
+                <th>Peanut Banana</th>
+                <th>Peanut Banana Strawberry</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Calories</td>
+                <td>320</td>
+                <td class="best-value">290</td>
+                <td>370</td>
+                <td>380</td>
+              </tr>
+              <tr>
+                <td>Protein</td>
+                <td>15g</td>
+                <td>15g</td>
+                <td>19g</td>
+                <td class="best-value">20g</td>
+              </tr>
+              <tr>
+                <td>Total Fat</td>
+                <td>10g</td>
+                <td class="best-value">7g</td>
+                <td>16g</td>
+                <td>16g</td>
+              </tr>
+              <tr>
+                <td>Carbs</td>
+                <td>42g</td>
+                <td class="best-value">40g</td>
+                <td>42g</td>
+                <td>43g</td>
+              </tr>
+              <tr>
+                <td>Fiber</td>
+                <td>7g</td>
+                <td>3g</td>
+                <td>6g</td>
+                <td class="best-value">8g</td>
+              </tr>
+              <tr>
+                <td>Sugar</td>
+                <td>24g</td>
+                <td>23g</td>
+                <td class="best-value">22g</td>
+                <td>24g</td>
+              </tr>
+              <tr>
+                <td>Added Sugar</td>
+                <td class="best-value">10g</td>
+                <td>12g</td>
+                <td class="best-value">10g</td>
+                <td class="best-value">10g</td>
+              </tr>
+              <tr>
+                <td>Calcium</td>
+                <td>182mg</td>
+                <td class="best-value">208mg</td>
+                <td>182mg</td>
+                <td>182mg</td>
+              </tr>
+              <tr>
+                <td>Iron</td>
+                <td>2.88mg</td>
+                <td>2.52mg</td>
+                <td class="best-value">3.06mg</td>
+                <td class="best-value">3.06mg</td>
+              </tr>
+              <tr>
+                <td>Potassium</td>
+                <td>470mg</td>
+                <td>423mg</td>
+                <td class="best-value">517mg</td>
+                <td class="best-value">517mg</td>
+              </tr>
+              <tr>
+                <td>Vitamin D</td>
+                <td>2.8mcg</td>
+                <td class="best-value">3.2mcg</td>
+                <td>2.8mcg</td>
+                <td>2.8mcg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Juice Nation JA</h3>
+          <p>Real ingredients. Real nutrition. Made in Jamaica.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/products.html">Products</a></li>
+            <li><a href="/pages/nutrition.html">Nutrition</a></li>
+            <li><a href="/pages/our-story.html">Our Story</a></li>
+            <li><a href="/pages/find-us.html">Find Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><a href="https://wa.me/18765571212" target="_blank" rel="noopener">WhatsApp: +1 (876) 557-1212</a></li>
+            <li><a href="https://instagram.com/juicenationja" target="_blank" rel="noopener">@juicenationja</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Juice Nation JA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // ===== Nutrition Tab Switching =====
+    document.querySelectorAll('.nutrition-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update active tab
+        document.querySelectorAll('.nutrition-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Update active panel
+        const flavor = tab.getAttribute('data-flavor');
+        document.querySelectorAll('.nutrition-panel').forEach(panel => {
+          panel.classList.remove('active');
+        });
+        document.getElementById(flavor).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

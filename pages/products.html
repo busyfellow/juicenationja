@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORGE Flavors — Blueberry Strawberry, Coffee Banana, Peanut Banana | Juice Nation JA</title>
+  <meta name="description" content="Explore all 4 FORGE Meal Replacement Shake flavors — Blueberry Strawberry, Coffee Banana, Peanut Banana, and Peanut Banana Strawberry. Real ingredients, real nutrition, made in Jamaica.">
+  <meta property="og:title" content="FORGE Flavors — Meal Replacement Shakes | Juice Nation JA">
+  <meta property="og:description" content="Discover the full FORGE lineup: 4 delicious meal replacement shake flavors packed with protein, vitamins, and real Jamaican ingredients.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/forge-blueberry-strawberry-1.jpg">
+  <meta property="og:url" content="https://juicenationja.com/pages/products.html">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <style>
+    /* ===== Product Page Specific Styles ===== */
+
+    /* Flavor Navigation Tabs */
+    .flavor-nav {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .flavor-nav::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .flavor-nav::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+    }
+
+    .flavor-tab {
+      flex-shrink: 0;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      background: transparent;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .flavor-tab:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .flavor-tab.active {
+      background: #fff;
+      color: #111;
+      border-color: #fff;
+    }
+
+    /* Product Detail Panels */
+    .product-detail-panel {
+      display: none;
+    }
+
+    .product-detail-panel.active {
+      display: block;
+    }
+
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .product-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .product-image-col {
+        position: static !important;
+      }
+    }
+
+    /* Image Column */
+    .product-image-col {
+      position: sticky;
+      top: 100px;
+    }
+
+    .product-main-image {
+      width: 100%;
+      border-radius: 16px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .product-thumbnails {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .product-thumbnail {
+      width: 72px;
+      height: 72px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .product-thumbnail:hover,
+    .product-thumbnail.active {
+      opacity: 1;
+      border-color: #fff;
+    }
+
+    /* Info Column */
+    .product-info-col {
+      color: #fff;
+    }
+
+    .flavor-tag {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .flavor-tag--purple { background: #7c3aed; color: #fff; }
+    .flavor-tag--brown { background: #8b6914; color: #fff; }
+    .flavor-tag--teal { background: #0d9488; color: #fff; }
+    .flavor-tag--orange { background: #ea580c; color: #fff; }
+
+    .product-info-col h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .product-description {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Highlight Badges */
+    .highlight-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .highlight-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.75rem 1.25rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      min-width: 80px;
+    }
+
+    .highlight-badge .badge-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .highlight-badge .badge-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-top: 0.15rem;
+    }
+
+    /* Nutrition Summary Table */
+    .nutrition-summary {
+      margin-bottom: 2rem;
+    }
+
+    .nutrition-summary h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    .nutrition-mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .nutrition-mini-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.85);
+    }
+
+    .nutrition-mini-table td:first-child {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .nutrition-mini-table td:last-child {
+      text-align: right;
+    }
+
+    .nutrition-mini-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Ingredients */
+    .product-ingredients {
+      margin-bottom: 1.5rem;
+    }
+
+    .product-ingredients h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .product-ingredients p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* Allergen Warning */
+    .allergen-warning {
+      background: rgba(234, 88, 12, 0.12);
+      border: 1px solid rgba(234, 88, 12, 0.3);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .allergen-warning .allergen-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+
+    .allergen-warning p {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+    }
+
+    .allergen-warning strong {
+      color: #fb923c;
+    }
+
+    /* CTA Buttons */
+    .product-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 2rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      background: #e5e5e5;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-secondary:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .nutrition-link {
+      display: inline-block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nutrition-link:hover {
+      color: #fff;
+    }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 8rem 0 4rem;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .page-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .products-section {
+      padding: 0 0 6rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Announcement Bar ===== -->
+  <div class="announcement-bar">
+    <div class="container">
+      <p>FORGE Meal Replacement Shakes — Now available across Jamaica</p>
+    </div>
+  </div>
+
+  <!-- ===== Sticky Header ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="/" class="logo">Juice Nation JA</a>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/products.html" class="active">Products</a></li>
+          <li><a href="/pages/nutrition.html">Nutrition</a></li>
+          <li><a href="/pages/our-story.html">Our Story</a></li>
+          <li><a href="/pages/find-us.html">Find Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Page Hero ===== -->
+    <section class="page-hero" data-animate="fade-up">
+      <div class="container">
+        <h1>Our Products</h1>
+        <p>Four delicious FORGE Meal Replacement Shake flavors — real ingredients, real nutrition, made in Jamaica.</p>
+      </div>
+    </section>
+
+    <!-- ===== Products Section ===== -->
+    <section class="products-section">
+      <div class="container">
+
+        <!-- Flavor Navigation Tabs -->
+        <div class="flavor-nav" data-animate="fade-up">
+          <button class="flavor-tab active" data-flavor="blueberry-strawberry">Blueberry Strawberry</button>
+          <button class="flavor-tab" data-flavor="coffee-banana">Coffee Banana</button>
+          <button class="flavor-tab" data-flavor="peanut-banana">Peanut Banana</button>
+          <button class="flavor-tab" data-flavor="peanut-banana-strawberry">Peanut Banana Strawberry</button>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- BLUEBERRY STRAWBERRY -->
+        <!-- ========================================== -->
+        <div class="product-detail-panel active" id="blueberry-strawberry" data-animate="fade-up">
+          <div class="product-detail-grid">
+
+            <!-- Left: Image -->
+            <div class="product-image-col">
+              <img src="/images/forge-blueberry-strawberry-1.jpg"
+                   alt="FORGE Blueberry Strawberry Meal Replacement Shake"
+                   class="product-main-image" id="main-img-blueberry-strawberry">
+              <div class="product-thumbnails">
+                <img src="/images/forge-blueberry-strawberry-1.jpg"
+                     alt="Blueberry Strawberry front"
+                     class="product-thumbnail active"
+                     onclick="switchImage('blueberry-strawberry', this)">
+                <img src="/images/forge-blueberry-strawberry-2.jpg"
+                     alt="Blueberry Strawberry back"
+                     class="product-thumbnail"
+                     onclick="switchImage('blueberry-strawberry', this)">
+              </div>
+            </div>
+
+            <!-- Right: Info -->
+            <div class="product-info-col">
+              <span class="flavor-tag flavor-tag--purple">Berry Blend</span>
+              <h2>Blueberry Strawberry</h2>
+              <p class="product-description">A refreshing berry blend combining the sweetness of strawberry with the rich depth of blueberry. Made with real fruits and fortified with essential nutrients for complete on-the-go nutrition.</p>
+
+              <div class="highlight-badges">
+                <div class="highlight-badge">
+                  <span class="badge-value">15g</span>
+                  <span class="badge-label">Protein</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">320</span>
+                  <span class="badge-label">Cal</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">500ml</span>
+                  <span class="badge-label">Size</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">B12 &amp; D</span>
+                  <span class="badge-label">Vitamins</span>
+                </div>
+              </div>
+
+              <div class="nutrition-summary">
+                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:rgba(255,255,255,0.5);">per serving (1/2 bottle)</span></h3>
+                <table class="nutrition-mini-table">
+                  <tr><td>Calories</td><td>320</td></tr>
+                  <tr><td>Total Fat</td><td>10g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Saturated Fat</td><td>2g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Trans Fat</td><td>0g</td></tr>
+                  <tr><td>Cholesterol</td><td>0mg</td></tr>
+                  <tr><td>Sodium</td><td>80mg</td></tr>
+                  <tr><td>Total Carbohydrate</td><td>42g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Dietary Fiber</td><td>7g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Total Sugars</td><td>24g</td></tr>
+                  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Added Sugars</td><td>10g</td></tr>
+                  <tr><td>Protein</td><td>15g</td></tr>
+                  <tr><td>Vitamin D</td><td>2.8mcg</td></tr>
+                  <tr><td>Calcium</td><td>182mg</td></tr>
+                  <tr><td>Iron</td><td>2.88mg</td></tr>
+                  <tr><td>Potassium</td><td>470mg</td></tr>
+                </table>
+              </div>
+
+              <div class="product-ingredients">
+                <h3>Ingredients</h3>
+                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, strawberries, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
+              </div>
+
+              <div class="allergen-warning">
+                <span class="allergen-icon" aria-hidden="true">&#9888;</span>
+                <p><strong>Allergen Warning:</strong> Contains Peanuts. Manufactured in a facility that processes soy, dairy, and tree nuts.</p>
+              </div>
+
+              <div class="product-ctas">
+                <a href="/pages/find-us.html" class="btn-primary">Find in Store</a>
+                <a href="https://wa.me/18765571212" class="btn-secondary" target="_blank" rel="noopener">Order via WhatsApp</a>
+              </div>
+
+              <a href="/pages/nutrition.html" class="nutrition-link">View Full Nutrition Facts &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- COFFEE BANANA -->
+        <!-- ========================================== -->
+        <div class="product-detail-panel" id="coffee-banana" data-animate="fade-up">
+          <div class="product-detail-grid">
+
+            <div class="product-image-col">
+              <img src="/images/forge-coffee-banana-1.jpg"
+                   alt="FORGE Coffee Banana Meal Replacement Shake"
+                   class="product-main-image" id="main-img-coffee-banana">
+              <div class="product-thumbnails">
+                <img src="/images/forge-coffee-banana-1.jpg"
+                     alt="Coffee Banana front"
+                     class="product-thumbnail active"
+                     onclick="switchImage('coffee-banana', this)">
+                <img src="/images/forge-coffee-banana-2.jpg"
+                     alt="Coffee Banana back"
+                     class="product-thumbnail"
+                     onclick="switchImage('coffee-banana', this)">
+              </div>
+            </div>
+
+            <div class="product-info-col">
+              <span class="flavor-tag flavor-tag--brown">Smooth &amp; Rich</span>
+              <h2>Coffee Banana</h2>
+              <p class="product-description">The perfect morning fuel — smooth coffee meets creamy banana in a protein-packed shake that replaces your breakfast and your coffee run.</p>
+
+              <div class="highlight-badges">
+                <div class="highlight-badge">
+                  <span class="badge-value">15g</span>
+                  <span class="badge-label">Protein</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">290</span>
+                  <span class="badge-label">Cal</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">500ml</span>
+                  <span class="badge-label">Size</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">B12 &amp; D</span>
+                  <span class="badge-label">Vitamins</span>
+                </div>
+              </div>
+
+              <div class="nutrition-summary">
+                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:rgba(255,255,255,0.5);">per serving (1/2 bottle)</span></h3>
+                <table class="nutrition-mini-table">
+                  <tr><td>Calories</td><td>290</td></tr>
+                  <tr><td>Total Fat</td><td>7g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Saturated Fat</td><td>1.5g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Trans Fat</td><td>0g</td></tr>
+                  <tr><td>Cholesterol</td><td>0mg</td></tr>
+                  <tr><td>Sodium</td><td>80mg</td></tr>
+                  <tr><td>Total Carbohydrate</td><td>40g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Dietary Fiber</td><td>3g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Total Sugars</td><td>23g</td></tr>
+                  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Added Sugars</td><td>12g</td></tr>
+                  <tr><td>Protein</td><td>15g</td></tr>
+                  <tr><td>Vitamin D</td><td>3.2mcg</td></tr>
+                  <tr><td>Calcium</td><td>208mg</td></tr>
+                  <tr><td>Iron</td><td>2.52mg</td></tr>
+                  <tr><td>Potassium</td><td>423mg</td></tr>
+                </table>
+              </div>
+
+              <div class="product-ingredients">
+                <h3>Ingredients</h3>
+                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, strawberries, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
+              </div>
+
+              <div class="allergen-warning">
+                <span class="allergen-icon" aria-hidden="true">&#9888;</span>
+                <p><strong>Allergen Warning:</strong> Contains Peanuts. Manufactured in a facility that processes soy, dairy, and tree nuts.</p>
+              </div>
+
+              <div class="product-ctas">
+                <a href="/pages/find-us.html" class="btn-primary">Find in Store</a>
+                <a href="https://wa.me/18765571212" class="btn-secondary" target="_blank" rel="noopener">Order via WhatsApp</a>
+              </div>
+
+              <a href="/pages/nutrition.html" class="nutrition-link">View Full Nutrition Facts &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PEANUT BANANA -->
+        <!-- ========================================== -->
+        <div class="product-detail-panel" id="peanut-banana" data-animate="fade-up">
+          <div class="product-detail-grid">
+
+            <div class="product-image-col">
+              <img src="/images/forge-peanut-banana.jpg"
+                   alt="FORGE Peanut Banana Meal Replacement Shake"
+                   class="product-main-image" id="main-img-peanut-banana">
+              <div class="product-thumbnails">
+                <img src="/images/forge-peanut-banana.jpg"
+                     alt="Peanut Banana"
+                     class="product-thumbnail active">
+              </div>
+            </div>
+
+            <div class="product-info-col">
+              <span class="flavor-tag flavor-tag--teal">Creamy Classic</span>
+              <h2>Peanut Banana</h2>
+              <p class="product-description">The OG — creamy peanut butter meets ripe banana for a satisfying, protein-rich shake that tastes like a treat but fuels like a meal.</p>
+
+              <div class="highlight-badges">
+                <div class="highlight-badge">
+                  <span class="badge-value">19g</span>
+                  <span class="badge-label">Protein</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">370</span>
+                  <span class="badge-label">Cal</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">500ml</span>
+                  <span class="badge-label">Size</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">B12 &amp; D</span>
+                  <span class="badge-label">Vitamins</span>
+                </div>
+              </div>
+
+              <div class="nutrition-summary">
+                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:rgba(255,255,255,0.5);">per serving (full bottle)</span></h3>
+                <table class="nutrition-mini-table">
+                  <tr><td>Calories</td><td>370</td></tr>
+                  <tr><td>Total Fat</td><td>16g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Saturated Fat</td><td>2.5g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Trans Fat</td><td>0g</td></tr>
+                  <tr><td>Cholesterol</td><td>0mg</td></tr>
+                  <tr><td>Sodium</td><td>80mg</td></tr>
+                  <tr><td>Total Carbohydrate</td><td>42g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Dietary Fiber</td><td>6g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Total Sugars</td><td>22g</td></tr>
+                  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Added Sugars</td><td>10g</td></tr>
+                  <tr><td>Protein</td><td>19g</td></tr>
+                  <tr><td>Vitamin D</td><td>2.8mcg</td></tr>
+                  <tr><td>Calcium</td><td>182mg</td></tr>
+                  <tr><td>Iron</td><td>3.06mg</td></tr>
+                  <tr><td>Potassium</td><td>517mg</td></tr>
+                </table>
+              </div>
+
+              <div class="product-ingredients">
+                <h3>Ingredients</h3>
+                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, strawberries, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
+              </div>
+
+              <div class="allergen-warning">
+                <span class="allergen-icon" aria-hidden="true">&#9888;</span>
+                <p><strong>Allergen Warning:</strong> Contains Peanuts. Manufactured in a facility that processes soy, dairy, and tree nuts.</p>
+              </div>
+
+              <div class="product-ctas">
+                <a href="/pages/find-us.html" class="btn-primary">Find in Store</a>
+                <a href="https://wa.me/18765571212" class="btn-secondary" target="_blank" rel="noopener">Order via WhatsApp</a>
+              </div>
+
+              <a href="/pages/nutrition.html" class="nutrition-link">View Full Nutrition Facts &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PEANUT BANANA STRAWBERRY -->
+        <!-- ========================================== -->
+        <div class="product-detail-panel" id="peanut-banana-strawberry" data-animate="fade-up">
+          <div class="product-detail-grid">
+
+            <div class="product-image-col">
+              <img src="/images/forge-peanut-banana-strawberry-1.jpg"
+                   alt="FORGE Peanut Banana Strawberry Meal Replacement Shake"
+                   class="product-main-image" id="main-img-peanut-banana-strawberry">
+              <div class="product-thumbnails">
+                <img src="/images/forge-peanut-banana-strawberry-1.jpg"
+                     alt="Peanut Banana Strawberry front"
+                     class="product-thumbnail active"
+                     onclick="switchImage('peanut-banana-strawberry', this)">
+                <img src="/images/forge-peanut-banana-strawberry-2.jpg"
+                     alt="Peanut Banana Strawberry back"
+                     class="product-thumbnail"
+                     onclick="switchImage('peanut-banana-strawberry', this)">
+              </div>
+            </div>
+
+            <div class="product-info-col">
+              <span class="flavor-tag flavor-tag--orange">Power Blend</span>
+              <h2>Peanut Banana Strawberry</h2>
+              <p class="product-description">Our most loaded flavor — peanut, banana, and strawberry come together for the ultimate power blend with 20g of protein per serving.</p>
+
+              <div class="highlight-badges">
+                <div class="highlight-badge">
+                  <span class="badge-value">20g</span>
+                  <span class="badge-label">Protein</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">380</span>
+                  <span class="badge-label">Cal</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">500ml</span>
+                  <span class="badge-label">Size</span>
+                </div>
+                <div class="highlight-badge">
+                  <span class="badge-value">B12 &amp; D</span>
+                  <span class="badge-label">Vitamins</span>
+                </div>
+              </div>
+
+              <div class="nutrition-summary">
+                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:rgba(255,255,255,0.5);">per serving (1/2 bottle)</span></h3>
+                <table class="nutrition-mini-table">
+                  <tr><td>Calories</td><td>380</td></tr>
+                  <tr><td>Total Fat</td><td>16g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Saturated Fat</td><td>3g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Trans Fat</td><td>0g</td></tr>
+                  <tr><td>Cholesterol</td><td>0mg</td></tr>
+                  <tr><td>Sodium</td><td>80mg</td></tr>
+                  <tr><td>Total Carbohydrate</td><td>43g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Dietary Fiber</td><td>8g</td></tr>
+                  <tr><td>&nbsp;&nbsp;Total Sugars</td><td>24g</td></tr>
+                  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Added Sugars</td><td>10g</td></tr>
+                  <tr><td>Protein</td><td>20g</td></tr>
+                  <tr><td>Vitamin D</td><td>2.8mcg</td></tr>
+                  <tr><td>Calcium</td><td>182mg</td></tr>
+                  <tr><td>Iron</td><td>3.06mg</td></tr>
+                  <tr><td>Potassium</td><td>517mg</td></tr>
+                </table>
+              </div>
+
+              <div class="product-ingredients">
+                <h3>Ingredients</h3>
+                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, strawberries, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
+              </div>
+
+              <div class="allergen-warning">
+                <span class="allergen-icon" aria-hidden="true">&#9888;</span>
+                <p><strong>Allergen Warning:</strong> Contains Peanuts. Manufactured in a facility that processes soy, dairy, and tree nuts.</p>
+              </div>
+
+              <div class="product-ctas">
+                <a href="/pages/find-us.html" class="btn-primary">Find in Store</a>
+                <a href="https://wa.me/18765571212" class="btn-secondary" target="_blank" rel="noopener">Order via WhatsApp</a>
+              </div>
+
+              <a href="/pages/nutrition.html" class="nutrition-link">View Full Nutrition Facts &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Juice Nation JA</h3>
+          <p>Real ingredients. Real nutrition. Made in Jamaica.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/products.html">Products</a></li>
+            <li><a href="/pages/nutrition.html">Nutrition</a></li>
+            <li><a href="/pages/our-story.html">Our Story</a></li>
+            <li><a href="/pages/find-us.html">Find Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><a href="https://wa.me/18765571212" target="_blank" rel="noopener">WhatsApp: +1 (876) 557-1212</a></li>
+            <li><a href="https://instagram.com/juicenationja" target="_blank" rel="noopener">@juicenationja</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Juice Nation JA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // ===== Flavor Tab Switching =====
+    document.querySelectorAll('.flavor-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update active tab
+        document.querySelectorAll('.flavor-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Update active panel
+        const flavor = tab.getAttribute('data-flavor');
+        document.querySelectorAll('.product-detail-panel').forEach(panel => {
+          panel.classList.remove('active');
+        });
+        document.getElementById(flavor).classList.add('active');
+      });
+    });
+
+    // ===== Thumbnail Image Switching =====
+    function switchImage(flavorId, thumbnailEl) {
+      const mainImg = document.getElementById('main-img-' + flavorId);
+      if (mainImg && thumbnailEl) {
+        mainImg.src = thumbnailEl.src;
+        mainImg.alt = thumbnailEl.alt;
+
+        // Update active thumbnail
+        const panel = document.getElementById(flavorId);
+        panel.querySelectorAll('.product-thumbnail').forEach(t => t.classList.remove('active'));
+        thumbnailEl.classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+</html>
