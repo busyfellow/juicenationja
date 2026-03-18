@@ -24,7 +24,7 @@
   --color-dark:           #1A1A2E;
   --color-dark-surface:   #252540;
   --color-body:           #333346;
-  --color-muted:          #6B6B80;
+  --color-muted:          #4D4D62;
   --color-light:          #F7F7FB;
   --color-white:          #FFFFFF;
   --color-border:         #E5E5EE;
@@ -396,6 +396,17 @@ p:last-child {
 }
 
 /* Logo */
+.logo-img {
+  height: 45px;
+  width: auto;
+  display: block;
+  transition: opacity var(--transition-fast);
+}
+
+.logo:hover .logo-img {
+  opacity: 0.85;
+}
+
 .logo-text,
 .logo-juice {
   font-family: 'DM Sans', sans-serif;
@@ -602,6 +613,11 @@ p:last-child {
 /* Footer Brand Column */
 .footer-brand {
   max-width: 320px;
+}
+
+.footer-brand .logo-img {
+  height: 50px;
+  margin-bottom: var(--space-md);
 }
 
 .footer-brand .logo-text,

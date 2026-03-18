@@ -221,7 +221,8 @@
    3. PRODUCTS PREVIEW
    -------------------------------------------------------------------------- */
 
-.products-preview {
+.products-preview,
+.products-section {
   padding: var(--space-4xl) 0;
 }
 
@@ -343,7 +344,7 @@
 }
 
 .why-forge .section-subtitle {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .benefits-grid {
@@ -387,7 +388,7 @@
 
 .benefit-card p {
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.78);
   line-height: 1.7;
   margin: 0;
 }
@@ -442,7 +443,7 @@
 
 .feature-split-content p {
   font-size: var(--text-md);
-  color: var(--color-muted);
+  color: var(--color-body);
   line-height: 1.7;
   margin-bottom: var(--space-lg);
 }
@@ -523,7 +524,8 @@
    7. REVIEWS
    -------------------------------------------------------------------------- */
 
-.reviews {
+.reviews,
+.reviews-section {
   padding: var(--space-4xl) 0;
   background-color: var(--color-light);
 }
@@ -581,14 +583,17 @@
    8. CTA SECTION
    -------------------------------------------------------------------------- */
 
-.cta-section {
+.cta-section,
+.cta-banner {
   padding: var(--space-4xl) 0;
   background: linear-gradient(135deg, var(--color-primary), #e88a00);
   color: var(--color-white);
   text-align: center;
 }
 
-.cta-section h2 {
+.cta-section h2,
+.cta-banner h2,
+.cta-banner .cta-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
@@ -596,37 +601,73 @@
   color: var(--color-white);
 }
 
-.cta-section p {
+.cta-section p,
+.cta-banner p,
+.cta-banner .cta-subtitle {
   font-size: var(--text-lg);
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.92);
   max-width: 560px;
   margin: 0 auto var(--space-xl);
   line-height: 1.7;
 }
 
-.cta-buttons {
+.cta-buttons,
+.cta-banner-inner .cta-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-sm);
 }
 
-.cta-section .btn-primary {
+/* White buttons for CTA on orange background */
+.cta-section .btn-primary,
+.cta-banner .btn-primary,
+.btn-white {
   background-color: var(--color-white);
   color: var(--color-primary);
+  border: 2px solid var(--color-white);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: var(--text-md);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
-.cta-section .btn-primary:hover {
+.cta-section .btn-primary:hover,
+.cta-banner .btn-primary:hover,
+.btn-white:hover {
   background-color: var(--color-light);
+  transform: translateY(-2px);
 }
 
-.cta-section .btn-outline {
-  border-color: var(--color-white);
+.cta-section .btn-outline,
+.cta-banner .btn-outline,
+.btn-outline-white {
+  border: 2px solid var(--color-white);
   color: var(--color-white);
+  background: transparent;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: var(--text-md);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
-.cta-section .btn-outline:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+.cta-section .btn-outline:hover,
+.cta-banner .btn-outline:hover,
+.btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
 }
 
 /* --------------------------------------------------------------------------
@@ -707,7 +748,7 @@
 .faq-answer-inner {
   padding-bottom: var(--space-lg);
   font-size: var(--text-sm);
-  color: var(--color-muted);
+  color: var(--color-body);
   line-height: 1.8;
 }
 
@@ -790,11 +831,13 @@
     padding: var(--space-3xl) var(--space-2xl);
   }
 
-  .feature-split--reverse .feature-split-image {
+  .feature-split--reverse .feature-split-image,
+  .feature-split--reversed .feature-split-image {
     order: 2;
   }
 
-  .feature-split--reverse .feature-split-content {
+  .feature-split--reverse .feature-split-content,
+  .feature-split--reversed .feature-split-content {
     order: 1;
   }
 }

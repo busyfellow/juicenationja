@@ -8,7 +8,7 @@
   <meta property="og:title" content="FORGE Flavors — Meal Replacement Shakes | Juice Nation JA">
   <meta property="og:description" content="Discover the full FORGE lineup: 4 delicious meal replacement shake flavors packed with protein, vitamins, and real Jamaican ingredients.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="/images/forge-blueberry-strawberry-1.jpg">
+  <meta property="og:image" content="/images/forge-blueberry-strawberry.png">
   <meta property="og:url" content="https://juicenationja.com/pages/products.html">
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/pages.css">
@@ -232,6 +232,10 @@
     /* Ingredients */
     .product-ingredients {
       margin-bottom: 1.5rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
     }
 
     .product-ingredients h3 {
@@ -244,7 +248,7 @@
     .product-ingredients p {
       font-size: 0.9rem;
       line-height: 1.6;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.8);
     }
 
     /* Allergen Warning */
@@ -333,10 +337,35 @@
       color: #fff;
     }
 
+    /* Dark page background for product detail */
+    body {
+      background-color: #1A1A2E;
+    }
+
+    /* Header adjustments for dark page */
+    .site-header {
+      background: rgba(26, 26, 46, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .site-header.scrolled {
+      background: rgba(26, 26, 46, 0.95);
+    }
+    .hamburger span {
+      background-color: #fff;
+    }
+    .nav-list a {
+      color: rgba(255,255,255,0.85);
+    }
+    .nav-list a:hover {
+      color: #fff;
+    }
+
     /* Page Hero */
     .page-hero {
       padding: 8rem 0 4rem;
       text-align: center;
+      background-color: #1A1A2E;
     }
 
     .page-hero h1 {
@@ -378,7 +407,7 @@
   <!-- ===== Sticky Header ===== -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a href="/" class="logo">Juice Nation JA</a>
+      <a href="/" class="logo"><img src="/images/logo-juicenation.jpg" alt="Juice Nation JA" class="logo-img" height="45"></a>
       <nav class="main-nav">
         <ul class="nav-list">
           <li><a href="/">Home</a></li>
@@ -423,15 +452,15 @@
 
             <!-- Left: Image -->
             <div class="product-image-col">
-              <img src="/images/forge-blueberry-strawberry-1.jpg"
+              <img src="/images/forge-blueberry-strawberry.png"
                    alt="FORGE Blueberry Strawberry Meal Replacement Shake"
                    class="product-main-image" id="main-img-blueberry-strawberry">
               <div class="product-thumbnails">
-                <img src="/images/forge-blueberry-strawberry-1.jpg"
+                <img src="/images/forge-blueberry-strawberry.png"
                      alt="Blueberry Strawberry front"
                      class="product-thumbnail active"
                      onclick="switchImage('blueberry-strawberry', this)">
-                <img src="/images/forge-blueberry-strawberry-2.jpg"
+                <img src="/images/forge-blueberry-strawberry.png"
                      alt="Blueberry Strawberry back"
                      class="product-thumbnail"
                      onclick="switchImage('blueberry-strawberry', this)">
@@ -511,15 +540,15 @@
           <div class="product-detail-grid">
 
             <div class="product-image-col">
-              <img src="/images/forge-coffee-banana-1.jpg"
+              <img src="/images/forge-coffee-banana.png"
                    alt="FORGE Coffee Banana Meal Replacement Shake"
                    class="product-main-image" id="main-img-coffee-banana">
               <div class="product-thumbnails">
-                <img src="/images/forge-coffee-banana-1.jpg"
+                <img src="/images/forge-coffee-banana.png"
                      alt="Coffee Banana front"
                      class="product-thumbnail active"
                      onclick="switchImage('coffee-banana', this)">
-                <img src="/images/forge-coffee-banana-2.jpg"
+                <img src="/images/forge-coffee-banana.png"
                      alt="Coffee Banana back"
                      class="product-thumbnail"
                      onclick="switchImage('coffee-banana', this)">
@@ -598,11 +627,11 @@
           <div class="product-detail-grid">
 
             <div class="product-image-col">
-              <img src="/images/forge-peanut-banana.jpg"
+              <img src="/images/forge-peanut-banana.png"
                    alt="FORGE Peanut Banana Meal Replacement Shake"
                    class="product-main-image" id="main-img-peanut-banana">
               <div class="product-thumbnails">
-                <img src="/images/forge-peanut-banana.jpg"
+                <img src="/images/forge-peanut-banana.png"
                      alt="Peanut Banana"
                      class="product-thumbnail active">
               </div>
@@ -680,15 +709,15 @@
           <div class="product-detail-grid">
 
             <div class="product-image-col">
-              <img src="/images/forge-peanut-banana-strawberry-1.jpg"
+              <img src="/images/forge-peanut-banana-strawberry.png"
                    alt="FORGE Peanut Banana Strawberry Meal Replacement Shake"
                    class="product-main-image" id="main-img-peanut-banana-strawberry">
               <div class="product-thumbnails">
-                <img src="/images/forge-peanut-banana-strawberry-1.jpg"
+                <img src="/images/forge-peanut-banana-strawberry.png"
                      alt="Peanut Banana Strawberry front"
                      class="product-thumbnail active"
                      onclick="switchImage('peanut-banana-strawberry', this)">
-                <img src="/images/forge-peanut-banana-strawberry-2.jpg"
+                <img src="/images/forge-peanut-banana-strawberry.png"
                      alt="Peanut Banana Strawberry back"
                      class="product-thumbnail"
                      onclick="switchImage('peanut-banana-strawberry', this)">
