@@ -13,7 +13,45 @@
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/pages.css">
   <style>
-    /* ===== Product Page Specific Styles ===== */
+    /* ===== Product Page Specific Styles — Light Theme ===== */
+
+    /* Light off-white page background */
+    body {
+      background-color: #F8F8FC;
+    }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 8rem 0 4rem;
+      text-align: center;
+      background: linear-gradient(135deg, #FF6B00 0%, #E05500 100%);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .page-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .products-section {
+      padding: 2rem 0 6rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
     /* Flavor Navigation Tabs */
     .flavor-nav {
@@ -31,17 +69,17 @@
     }
 
     .flavor-nav::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.3);
+      background: rgba(0,0,0,0.15);
       border-radius: 2px;
     }
 
     .flavor-tab {
       flex-shrink: 0;
       padding: 0.75rem 1.5rem;
-      border: 2px solid rgba(255,255,255,0.2);
+      border: 2px solid #E5E5EE;
       border-radius: 50px;
-      background: transparent;
-      color: #fff;
+      background: #fff;
+      color: #333346;
       font-family: inherit;
       font-size: 0.95rem;
       font-weight: 600;
@@ -51,14 +89,14 @@
     }
 
     .flavor-tab:hover {
-      border-color: rgba(255,255,255,0.5);
-      background: rgba(255,255,255,0.05);
+      border-color: #FF6B00;
+      color: #FF6B00;
     }
 
     .flavor-tab.active {
-      background: #fff;
-      color: #111;
-      border-color: #fff;
+      background: #FF6B00;
+      color: #fff;
+      border-color: #FF6B00;
     }
 
     /* Product Detail Panels */
@@ -98,8 +136,9 @@
       border-radius: 16px;
       aspect-ratio: 1 / 1;
       object-fit: cover;
-      background: #1a1a1a;
+      background: #EEEEF4;
       margin-bottom: 1rem;
+      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.08);
     }
 
     .product-thumbnails {
@@ -116,17 +155,18 @@
       cursor: pointer;
       opacity: 0.6;
       transition: all 0.3s ease;
+      background: #EEEEF4;
     }
 
     .product-thumbnail:hover,
     .product-thumbnail.active {
       opacity: 1;
-      border-color: #fff;
+      border-color: #FF6B00;
     }
 
     /* Info Column */
     .product-info-col {
-      color: #fff;
+      color: #333346;
     }
 
     .flavor-tag {
@@ -150,12 +190,13 @@
       font-weight: 800;
       margin-bottom: 1rem;
       line-height: 1.1;
+      color: #1A1A2E;
     }
 
     .product-description {
       font-size: 1.05rem;
       line-height: 1.7;
-      color: rgba(255,255,255,0.8);
+      color: #4D4D62;
       margin-bottom: 1.5rem;
     }
 
@@ -172,21 +213,22 @@
       flex-direction: column;
       align-items: center;
       padding: 0.75rem 1.25rem;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: #fff;
+      border: 1px solid #E5E5EE;
       border-radius: 12px;
       min-width: 80px;
+      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.06);
     }
 
     .highlight-badge .badge-value {
       font-size: 1.25rem;
       font-weight: 800;
-      color: #fff;
+      color: #FF6B00;
     }
 
     .highlight-badge .badge-label {
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.6);
+      color: #6B6B80;
       text-transform: uppercase;
       letter-spacing: 0.03em;
       margin-top: 0.15rem;
@@ -201,7 +243,7 @@
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
-      color: #fff;
+      color: #1A1A2E;
     }
 
     .nutrition-mini-table {
@@ -212,13 +254,13 @@
 
     .nutrition-mini-table td {
       padding: 0.5rem 0.75rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.85);
+      border-bottom: 1px solid #E5E5EE;
+      color: #4D4D62;
     }
 
     .nutrition-mini-table td:first-child {
       font-weight: 600;
-      color: #fff;
+      color: #1A1A2E;
     }
 
     .nutrition-mini-table td:last-child {
@@ -232,29 +274,30 @@
     /* Ingredients */
     .product-ingredients {
       margin-bottom: 1.5rem;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: #fff;
+      border: 1px solid #E5E5EE;
       border-radius: 12px;
       padding: 1.25rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.04);
     }
 
     .product-ingredients h3 {
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
-      color: #fff;
+      color: #1A1A2E;
     }
 
     .product-ingredients p {
       font-size: 0.9rem;
       line-height: 1.6;
-      color: rgba(255,255,255,0.8);
+      color: #4D4D62;
     }
 
     /* Allergen Warning */
     .allergen-warning {
-      background: rgba(234, 88, 12, 0.12);
-      border: 1px solid rgba(234, 88, 12, 0.3);
+      background: #FFF7ED;
+      border: 1px solid #FDBA74;
       border-radius: 12px;
       padding: 1rem 1.25rem;
       margin-bottom: 2rem;
@@ -267,17 +310,18 @@
       font-size: 1.25rem;
       flex-shrink: 0;
       line-height: 1.4;
+      color: #EA580C;
     }
 
     .allergen-warning p {
       font-size: 0.88rem;
       line-height: 1.5;
-      color: rgba(255,255,255,0.85);
+      color: #5C3D1E;
       margin: 0;
     }
 
     .allergen-warning strong {
-      color: #fb923c;
+      color: #C2410C;
     }
 
     /* CTA Buttons */
@@ -304,29 +348,30 @@
     }
 
     .btn-primary {
-      background: #fff;
-      color: #111;
+      background: #FF6B00;
+      color: #fff;
     }
 
     .btn-primary:hover {
-      background: #e5e5e5;
+      background: #E05500;
       transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(255, 107, 0, 0.3);
     }
 
     .btn-secondary {
       background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.3);
+      color: #1A1A2E;
+      border: 2px solid #1A1A2E;
     }
 
     .btn-secondary:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,0.05);
+      background: #1A1A2E;
+      color: #fff;
     }
 
     .nutrition-link {
       display: inline-block;
-      color: rgba(255,255,255,0.7);
+      color: #FF6B00;
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 600;
@@ -334,64 +379,7 @@
     }
 
     .nutrition-link:hover {
-      color: #fff;
-    }
-
-    /* Dark page background for product detail */
-    body {
-      background-color: #1A1A2E;
-    }
-
-    /* Header adjustments for dark page */
-    .site-header {
-      background: rgba(26, 26, 46, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-    .site-header.scrolled {
-      background: rgba(26, 26, 46, 0.95);
-    }
-    .hamburger span {
-      background-color: #fff;
-    }
-    .nav-list a {
-      color: rgba(255,255,255,0.85);
-    }
-    .nav-list a:hover {
-      color: #fff;
-    }
-
-    /* Page Hero */
-    .page-hero {
-      padding: 8rem 0 4rem;
-      text-align: center;
-      background-color: #1A1A2E;
-    }
-
-    .page-hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .page-hero p {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.7);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .products-section {
-      padding: 0 0 6rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+      color: #E05500;
     }
   </style>
 </head>
@@ -493,7 +481,7 @@
               </div>
 
               <div class="nutrition-summary">
-                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:rgba(255,255,255,0.5);">per serving (1/2 bottle)</span></h3>
+                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:#6B6B80;">per serving (1/2 bottle)</span></h3>
                 <table class="nutrition-mini-table">
                   <tr><td>Calories</td><td>320</td></tr>
                   <tr><td>Total Fat</td><td>10g</td></tr>
@@ -580,7 +568,7 @@
               </div>
 
               <div class="nutrition-summary">
-                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:rgba(255,255,255,0.5);">per serving (1/2 bottle)</span></h3>
+                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:#6B6B80;">per serving (1/2 bottle)</span></h3>
                 <table class="nutrition-mini-table">
                   <tr><td>Calories</td><td>290</td></tr>
                   <tr><td>Total Fat</td><td>7g</td></tr>
@@ -662,7 +650,7 @@
               </div>
 
               <div class="nutrition-summary">
-                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:rgba(255,255,255,0.5);">per serving (full bottle)</span></h3>
+                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:#6B6B80;">per serving (full bottle)</span></h3>
                 <table class="nutrition-mini-table">
                   <tr><td>Calories</td><td>370</td></tr>
                   <tr><td>Total Fat</td><td>16g</td></tr>
@@ -749,7 +737,7 @@
               </div>
 
               <div class="nutrition-summary">
-                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:rgba(255,255,255,0.5);">per serving (1/2 bottle)</span></h3>
+                <h3>Nutrition Summary <span style="font-weight:400;font-size:0.85rem;color:#6B6B80;">per serving (1/2 bottle)</span></h3>
                 <table class="nutrition-mini-table">
                   <tr><td>Calories</td><td>380</td></tr>
                   <tr><td>Total Fat</td><td>16g</td></tr>
@@ -798,7 +786,9 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h3>Juice Nation JA</h3>
+          <a href="/" aria-label="Juice Nation JA — Home">
+            <img src="/images/logo-juicenation.jpg" alt="Juice Nation JA" class="logo-img" height="44">
+          </a>
           <p>Real ingredients. Real nutrition. Made in Jamaica.</p>
         </div>
         <div class="footer-links">

@@ -396,10 +396,20 @@ p:last-child {
 }
 
 /* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
 .logo-img {
-  height: 45px;
+  height: 40px;
+  max-height: 40px;
   width: auto;
+  max-width: 140px;
   display: block;
+  object-fit: contain;
   transition: opacity var(--transition-fast);
 }
 
@@ -616,7 +626,10 @@ p:last-child {
 }
 
 .footer-brand .logo-img {
-  height: 50px;
+  height: 44px;
+  max-height: 44px;
+  max-width: 150px;
+  object-fit: contain;
   margin-bottom: var(--space-md);
 }
 
