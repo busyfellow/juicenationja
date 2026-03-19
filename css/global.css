@@ -422,8 +422,8 @@ p:last-child {
 }
 
 .logo-img {
-  height: 90px;
-  max-height: 90px;
+  height: 76px;
+  max-height: 76px;
   width: auto;
   max-width: 320px;
   display: block;
@@ -644,8 +644,8 @@ p:last-child {
 }
 
 .footer-brand .logo-img {
-  height: 90px;
-  max-height: 90px;
+  height: 76px;
+  max-height: 76px;
   max-width: 320px;
   object-fit: contain;
   margin-bottom: var(--space-md);
