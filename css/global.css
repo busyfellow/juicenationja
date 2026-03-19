@@ -327,13 +327,17 @@ p:last-child {
   letter-spacing: 0.02em;
 }
 
-.announcement-bar__track {
+/* Marquee track — supports both class naming conventions */
+.announcement-bar__track,
+.marquee-track,
+.announcement-marquee {
   display: flex;
   width: max-content;
   animation: marquee-scroll 30s linear infinite;
 }
 
-.announcement-bar__content {
+.announcement-bar__content,
+.marquee-content {
   display: flex;
   align-items: center;
   gap: var(--space-2xl);
@@ -341,10 +345,22 @@ p:last-child {
   white-space: nowrap;
 }
 
-.announcement-bar__content span {
+.announcement-bar__content span,
+.marquee-content span {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
+}
+
+/* Static announcement bar (no marquee, just centered text) */
+.announcement-bar p {
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.announcement-bar .marquee-dot {
+  opacity: 0.5;
 }
 
 @keyframes marquee-scroll {
@@ -356,7 +372,9 @@ p:last-child {
   }
 }
 
-.announcement-bar:hover .announcement-bar__track {
+.announcement-bar:hover .announcement-bar__track,
+.announcement-bar:hover .marquee-track,
+.announcement-bar:hover .announcement-marquee {
   animation-play-state: paused;
 }
 
@@ -404,10 +422,10 @@ p:last-child {
 }
 
 .logo-img {
-  height: 40px;
-  max-height: 40px;
+  height: 90px;
+  max-height: 90px;
   width: auto;
-  max-width: 140px;
+  max-width: 320px;
   display: block;
   object-fit: contain;
   transition: opacity var(--transition-fast);
@@ -626,9 +644,9 @@ p:last-child {
 }
 
 .footer-brand .logo-img {
-  height: 44px;
-  max-height: 44px;
-  max-width: 150px;
+  height: 90px;
+  max-height: 90px;
+  max-width: 320px;
   object-fit: contain;
   margin-bottom: var(--space-md);
 }
@@ -648,18 +666,21 @@ p:last-child {
 }
 
 /* Footer Social Icons */
-.footer-social {
+.footer-social,
+.footer-socials {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
-.footer-social a {
+.footer-social a,
+.footer-socials a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
   border-radius: var(--radius-round);
   background-color: var(--color-dark-surface);
   color: rgba(255, 255, 255, 0.6);
@@ -669,15 +690,17 @@ p:last-child {
     transform var(--transition-fast);
 }
 
-.footer-social a:hover {
+.footer-social a:hover,
+.footer-socials a:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-2px);
 }
 
-.footer-social a svg {
-  width: 18px;
-  height: 18px;
+.footer-social a svg,
+.footer-socials a svg {
+  width: 32px;
+  height: 32px;
   fill: currentColor;
 }
 
@@ -898,7 +921,9 @@ p:last-child {
     transform: none;
   }
 
-  .announcement-bar__track {
+  .announcement-bar__track,
+  .marquee-track,
+  .announcement-marquee {
     animation: none;
   }
 }

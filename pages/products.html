@@ -133,10 +133,10 @@
 
     .product-main-image {
       width: 100%;
-      border-radius: 16px;
+      border-radius: 24px;
       aspect-ratio: 1 / 1;
       object-fit: cover;
-      background: #EEEEF4;
+      background: transparent;
       margin-bottom: 1rem;
       box-shadow: 0 4px 20px rgba(26, 26, 46, 0.08);
     }
@@ -149,7 +149,7 @@
     .product-thumbnail {
       width: 72px;
       height: 72px;
-      border-radius: 10px;
+      border-radius: 16px;
       object-fit: cover;
       border: 2px solid transparent;
       cursor: pointer;
@@ -403,11 +403,28 @@
           <li><a href="/pages/nutrition.html">Nutrition</a></li>
           <li><a href="/pages/our-story.html">Our Story</a></li>
           <li><a href="/pages/find-us.html">Find Us</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
         </ul>
       </nav>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <nav aria-label="Mobile navigation">
+          <ul class="mobile-nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/products.html" class="active">Products</a></li>
+            <li><a href="/pages/nutrition.html">Nutrition</a></li>
+            <li><a href="/pages/our-story.html">Our Story</a></li>
+            <li><a href="/pages/find-us.html">Find Us</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -799,18 +816,20 @@
             <li><a href="/pages/nutrition.html">Nutrition</a></li>
             <li><a href="/pages/our-story.html">Our Story</a></li>
             <li><a href="/pages/find-us.html">Find Us</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-contact">
           <h4>Get in Touch</h4>
           <ul>
-            <li><a href="https://wa.me/18765571212" target="_blank" rel="noopener">WhatsApp: +1 (876) 557-1212</a></li>
-            <li><a href="https://instagram.com/juicenationja" target="_blank" rel="noopener">@juicenationja</a></li>
+            <li><a href="mailto:info@juicenationja.com">info@juicenationja.com</a></li>
+            <li><a href="tel:+18765571212">1 876 557 1212</a></li>
+            <li><a href="https://wa.me/18765571212" target="_blank" rel="noopener">WhatsApp Us</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Juice Nation JA. All rights reserved.</p>
+        <p>&copy; 2026 Juice Nation JA (Naturali Foods Ltd.) All rights reserved.</p>
       </div>
     </div>
   </footer>

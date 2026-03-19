@@ -13,13 +13,8 @@
 
     <!-- ── Announcement Bar ── -->
     <div class="announcement-bar">
-        <div class="announcement-marquee">
-            <span class="marquee-content">
-                🚀 FORGE Meal Replacement Shake — Now Available Across Kingston &nbsp;|&nbsp; 🇯🇲 Made in Jamaica, For Jamaica &nbsp;|&nbsp; 📞 Order Now: 1-876-557-1212 &nbsp;|&nbsp; 🚀 FORGE Meal Replacement Shake — Now Available Across Kingston &nbsp;|&nbsp; 🇯🇲 Made in Jamaica, For Jamaica &nbsp;|&nbsp; 📞 Order Now: 1-876-557-1212 &nbsp;|&nbsp;
-            </span>
-            <span class="marquee-content" aria-hidden="true">
-                🚀 FORGE Meal Replacement Shake — Now Available Across Kingston &nbsp;|&nbsp; 🇯🇲 Made in Jamaica, For Jamaica &nbsp;|&nbsp; 📞 Order Now: 1-876-557-1212 &nbsp;|&nbsp; 🚀 FORGE Meal Replacement Shake — Now Available Across Kingston &nbsp;|&nbsp; 🇯🇲 Made in Jamaica, For Jamaica &nbsp;|&nbsp; 📞 Order Now: 1-876-557-1212 &nbsp;|&nbsp;
-            </span>
+        <div class="container">
+            <p>FORGE Meal Replacement Shakes — Now available across Jamaica</p>
         </div>
     </div>
 
@@ -33,9 +28,11 @@
             <nav class="main-nav" id="mainNav" aria-label="Main navigation">
                 <ul class="nav-list">
                     <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="our-story.html" class="nav-link active">Our Story</a></li>
-                    <li><a href="find-us.html" class="nav-link">Find Us</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="/pages/products.html" class="nav-link">Products</a></li>
+                    <li><a href="/pages/nutrition.html" class="nav-link">Nutrition</a></li>
+                    <li><a href="/pages/our-story.html" class="nav-link active">Our Story</a></li>
+                    <li><a href="/pages/find-us.html" class="nav-link">Find Us</a></li>
+                    <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
 
@@ -45,16 +42,31 @@
             </a>
 
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
-                <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <span></span><span></span><span></span>
             </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+            <div class="mobile-menu-inner">
+                <nav aria-label="Mobile navigation">
+                    <ul class="mobile-nav-list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/pages/products.html">Products</a></li>
+                        <li><a href="/pages/nutrition.html">Nutrition</a></li>
+                        <li><a href="/pages/our-story.html" class="active">Our Story</a></li>
+                        <li><a href="/pages/find-us.html">Find Us</a></li>
+                        <li><a href="/pages/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main>
 
         <!-- ── Page Hero ── -->
-        <section class="page-hero" data-animate="fade-up">
+        <section class="page-hero" style="background: linear-gradient(135deg, #FF6B00 0%, #E05500 100%);" data-animate="fade-up">
             <div class="container">
                 <h1 class="page-hero__title">Our Story</h1>
                 <p class="page-hero__subtitle">From a kitchen blender to Kingston's shelves — the FORGE journey.</p>
@@ -204,19 +216,21 @@
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="/">Home</a></li>
-                        <li><a href="our-story.html">Our Story</a></li>
-                        <li><a href="find-us.html">Find Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/pages/products.html">Products</a></li>
+                        <li><a href="/pages/nutrition.html">Nutrition</a></li>
+                        <li><a href="/pages/our-story.html">Our Story</a></li>
+                        <li><a href="/pages/find-us.html">Find Us</a></li>
+                        <li><a href="/pages/contact.html">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h4 class="footer-heading">Products</h4>
                     <ul class="footer-links">
-                        <li><a href="../index.html#flavours">Blueberry Strawberry</a></li>
-                        <li><a href="../index.html#flavours">Coffee Banana</a></li>
-                        <li><a href="../index.html#flavours">Peanut Banana Strawberry</a></li>
-                        <li><a href="../index.html#flavours">Peanut Banana</a></li>
+                        <li><a href="/pages/products.html#blueberry-strawberry">Blueberry Strawberry</a></li>
+                        <li><a href="/pages/products.html#coffee-banana">Coffee Banana</a></li>
+                        <li><a href="/pages/products.html#peanut-banana-strawberry">Peanut Banana Strawberry</a></li>
+                        <li><a href="/pages/products.html#peanut-banana">Peanut Banana</a></li>
                     </ul>
                 </div>
 
@@ -229,7 +243,7 @@
                         </li>
                         <li>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            <a href="mailto:info@juicenation.com">info@juicenation.com</a>
+                            <a href="mailto:info@juicenationja.com">info@juicenationja.com</a>
                         </li>
                         <li>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
