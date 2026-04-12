@@ -10,5 +10,10 @@
   },
   "compatibility_flags": [
     "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "juicenationja.com", "custom_domain": true },
+    { "pattern": "www.juicenationja.com", "custom_domain": true }
   ]
 }
