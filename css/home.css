@@ -178,7 +178,7 @@
 
 /* Hero Image Tagline */
 .hero-image-tagline {
-  text-align: center;
+  text-align: left;
   font-family: 'DM Sans', sans-serif;
   font-size: var(--text-base);
   font-weight: var(--weight-medium);
