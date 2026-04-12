@@ -386,9 +386,28 @@
 <body>
 
   <!-- ===== Announcement Bar ===== -->
-  <div class="announcement-bar">
-    <div class="container">
-      <p>FORGE Meal Replacement Shakes — Now available across Jamaica</p>
+  <div class="announcement-bar" role="marquee" aria-label="Announcements">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span>FORGE Meal Replacement Shakes — Now available across Kingston</span>
+        <span class="marquee-dot" aria-hidden="true">·</span>
+        <span>Made with Real Fruits &amp; 15–20g Protein</span>
+        <span class="marquee-dot" aria-hidden="true">·</span>
+        <span><a href="/pages/find-us.html">Find a store near you &rarr;</a></span>
+        <span class="marquee-dot" aria-hidden="true">·</span>
+        <span>Free delivery on orders over $3,000 JMD</span>
+        <span class="marquee-dot" aria-hidden="true">·</span>
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        <span>FORGE Meal Replacement Shakes — Now available across Kingston</span>
+        <span class="marquee-dot">·</span>
+        <span>Made with Real Fruits &amp; 15–20g Protein</span>
+        <span class="marquee-dot">·</span>
+        <span><a href="/pages/find-us.html" tabindex="-1">Find a store near you &rarr;</a></span>
+        <span class="marquee-dot">·</span>
+        <span>Free delivery on orders over $3,000 JMD</span>
+        <span class="marquee-dot">·</span>
+      </div>
     </div>
   </div>
 
@@ -463,8 +482,8 @@
                      alt="Blueberry Strawberry front"
                      class="product-thumbnail active"
                      onclick="switchImage('blueberry-strawberry', this)">
-                <img src="/images/forge-blueberry-strawberry.png"
-                     alt="Blueberry Strawberry back"
+                <img src="/images/label-blueberry-strawberry.jpg"
+                     alt="Blueberry Strawberry nutrition label"
                      class="product-thumbnail"
                      onclick="switchImage('blueberry-strawberry', this)">
               </div>
@@ -550,8 +569,8 @@
                      alt="Coffee Banana front"
                      class="product-thumbnail active"
                      onclick="switchImage('coffee-banana', this)">
-                <img src="/images/forge-coffee-banana.png"
-                     alt="Coffee Banana back"
+                <img src="/images/label-coffee-banana.jpg"
+                     alt="Coffee Banana nutrition label"
                      class="product-thumbnail"
                      onclick="switchImage('coffee-banana', this)">
               </div>
@@ -633,8 +652,13 @@
                    class="product-main-image" id="main-img-peanut-banana">
               <div class="product-thumbnails">
                 <img src="/images/forge-peanut-banana.png"
-                     alt="Peanut Banana"
-                     class="product-thumbnail active">
+                     alt="Peanut Banana front"
+                     class="product-thumbnail active"
+                     onclick="switchImage('peanut-banana', this)">
+                <img src="/images/label-peanut-banana.jpg"
+                     alt="Peanut Banana nutrition label"
+                     class="product-thumbnail"
+                     onclick="switchImage('peanut-banana', this)">
               </div>
             </div>
 
@@ -645,7 +669,7 @@
 
               <div class="highlight-badges">
                 <div class="highlight-badge">
-                  <span class="badge-value">19g</span>
+                  <span class="badge-value">20g</span>
                   <span class="badge-label">Protein</span>
                 </div>
                 <div class="highlight-badge">
@@ -675,7 +699,7 @@
                   <tr><td>&nbsp;&nbsp;Dietary Fiber</td><td>6g</td></tr>
                   <tr><td>&nbsp;&nbsp;Total Sugars</td><td>22g</td></tr>
                   <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Added Sugars</td><td>10g</td></tr>
-                  <tr><td>Protein</td><td>19g</td></tr>
+                  <tr><td>Protein</td><td>20g</td></tr>
                   <tr><td>Vitamin D</td><td>2.8mcg</td></tr>
                   <tr><td>Calcium</td><td>182mg</td></tr>
                   <tr><td>Iron</td><td>3.06mg</td></tr>
@@ -685,7 +709,7 @@
 
               <div class="product-ingredients">
                 <h3>Ingredients</h3>
-                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, strawberries, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
+                <p>Filtered water, L.F.D. SOY (soy protein, sugar, vegetable oil, tricalcium phosphate, reduced iron, vitamin A palmitate, vitamin D, vitamin B12), banana, peanut, oats, pumpkin seed, sea salt. Stabilizers: Sodium Benzoate and potassium sorbate.</p>
               </div>
 
               <div class="allergen-warning">
@@ -717,8 +741,8 @@
                      alt="Peanut Banana Strawberry front"
                      class="product-thumbnail active"
                      onclick="switchImage('peanut-banana-strawberry', this)">
-                <img src="/images/forge-peanut-banana-strawberry.png"
-                     alt="Peanut Banana Strawberry back"
+                <img src="/images/label-peanut-banana-strawberry.jpg"
+                     alt="Peanut Banana Strawberry nutrition label"
                      class="product-thumbnail"
                      onclick="switchImage('peanut-banana-strawberry', this)">
               </div>

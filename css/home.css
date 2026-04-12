@@ -145,6 +145,37 @@
   overflow: hidden;
 }
 
+/* Floating Badges */
+.floating-badge {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-dark);
+  box-shadow: var(--shadow-md);
+  z-index: 2;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.badge-jamaica {
+  bottom: 16px;
+  left: 16px;
+}
+
+.badge-fruits {
+  top: 16px;
+  right: 16px;
+}
+
+.badge-natural {
+  bottom: 16px;
+  right: 16px;
+}
+
 /* Scroll Indicator */
 
 .hero-scroll-indicator {
