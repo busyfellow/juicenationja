@@ -176,6 +176,19 @@
   right: 16px;
 }
 
+/* Hero Image Tagline */
+.hero-image-tagline {
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--color-muted);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  margin-top: var(--space-lg);
+  padding: 0;
+}
+
 /* Scroll Indicator */
 
 .hero-scroll-indicator {
